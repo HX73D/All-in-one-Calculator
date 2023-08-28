@@ -1,20 +1,102 @@
-// All-in-one-Calculator.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+﻿#include <iostream>
+#include <cmath>
 
-#include <iostream>
+
+int num1;
+int num2;
+void choosenumbers() {
+    
+    std::cout << "Enter the first number";
+    std::cin >> num1;
+    std::cout << "Enter the second number";
+    std::cin >> num2;
+}
+
+void calculator() {
+    std::cout << "\n1. +\n2. -\n3. x\n 4.:\n5. root of\n\nChoose your option: ";
+    int choise;
+    std::cin >> choise;
+    switch (choise) {
+    case 1:
+        choosenumbers();
+        std::cout << num1 << " + " << num2 << " is " << num1 + num2;
+        system("pause");
+        break;
+    case 2:
+        choosenumbers();
+        std::cout << num1 << " - " << num2 << " is " << num1 - num2;
+        system("pause");
+        break;
+    case 3:
+        choosenumbers();
+        std::cout << num1 << " x " << num2 << " is " << num1 * num2;
+        system("pause");
+        break;
+    case 4:
+        choosenumbers();
+        std::cout << num1 << " : " << num2 << " is " << num1 / num2;
+        system("pause");
+        break;
+    case 5:
+        std::cout << "Enter the number you want to know the sqaure root of";
+        std::cin >> num1;
+        std::cout << "The sqaure root of " << num1 << " is " << sqrt(num1);
+        system("pause");
+        break;
+    }
+}
+
+void bmicalculator() {
+    double weight, height;
+
+    std::cout << "Enter your weight in kilograms: ";
+    std::cin >> weight;
+
+    std::cout << "Enter your height in meters: ";
+    std::cin >> height;
+
+    if (weight > 0 && height > 0) {
+        std::cout << "your bmi is " << weight / (height * height);
+        system("pause");
+    }
+}
+
+void temperatureconversion() {
+    std::cout << "1. celcius to fahrenheit\n 2.fahrenheit to celcius";
+    int choise;
+    std::cin >> choise;
+    double degree;
+    switch (choise) {
+    case 1:
+        std::cout << "enter the degree you want to calculate in celcius: ";
+        std::cin >> degree;
+        std::cout << degree << " celcius is this degree in fahrenheit " << (degree * 9 / 5) + 32;
+        system("pause");
+        break;
+    case 2:
+        std::cout << "enter the degree you want to calculate in fahrenheit: ";
+        std::cin >> degree;
+        std::cout << degree << " fahrenheit is this degree in celcius " << (degree - 32) * 5/9;
+        system("pause");
+        break;
+    }
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << "1. Calculator\n2. BMI Calculator\n3. Temperature Conversion\n" ;
+    int choise;
+    std::cin >> choise;
+
+    switch (choise) {
+    case 1:
+        calculator();
+        break;
+    case 2:
+        bmicalculator();
+        break;
+    case 3:
+        temperatureconversion();
+        break;
+    }
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
